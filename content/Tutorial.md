@@ -11,6 +11,8 @@ This tutorial will help you:
 - optionally change your URL.
 
 Hope it goes smoothly for you! It's a bit of work, but you do it only once!
+
+🧑‍💻 Feel free to take breaks and take it piece by piece; it's not very complex, but there's a bunch of new tools and concepts to learn, so it takes some time.
 ## Step 1: Take ownership of the code repository on GitHub
 
 You first need to transfer the ownership to your GitHub account:
@@ -22,7 +24,7 @@ You first need to transfer the ownership to your GitHub account:
 
 ✅ Your page should be live at https://ericsalodesign.github.io/eric-salo-design
 
-![[1 - enable pages.png|400]]
+![[1 - enable pages.png|423]]
 
 ## Step 2: Download the code and content on your Computer
 
@@ -46,9 +48,69 @@ This is where the fun stuff starts! Just a few more tools to install before you 
 - Start Obsidian and choose **Open Vault**
 - Choose the **Open Folder as Vault**
 - Choose the folder where you previously cloned the code and content.
-- Watch the guided tour video to get an overview of the content.
-## Optional: Choosing your URL
-By default, the URL will be https://ericsalodesign.github.io/eric-salo-design
+- Watch the guided tour video to get an overview of the content and how to edit it.
 
-url: "https://ericsalodesign.github.io"
-basePath: ""
+![](https://youtu.be/YjB5KjUDaXM)
+
+
+✅ You have Obsidian installed with your project available and you know more about how editing works!
+
+## Step 4: Final setup with plugins (Optional but recomended)
+
+We continue with the setup of Obsidian! Obsidian is also great because it can be extended so we can turn it into a full web editing station; this, however, requires installing a few plugins, and I'm building a plugin for Obsidian that will make things smoother, but it's still in development.
+
+- First, if you want to understand more, watch the short video where I explain why we use plugins.
+- Open the Obsidian Settings.
+- Navigate to **Community Plugins** on the left.
+- Press **Enable Community Plugins**.
+- You can click **Browse** to seach for plugins and install them, but for now you can just intall a few plugins:
+- Install and enable the [BRAT plugin](obsidian://show-plugin?id=obsidian42-brat), that allows you to install beta plugins
+- Install the **lefolio** plugin through BRAT: 
+	- In Obsidian, press `CTRL+P` to open the command panel
+	- Type "brat add", and choose "Add a beta plugin..."![[6 - brat.png]]
+	- Copy the plugin URL: https://github.com/lefolio/obsidian-plugin
+	- and press **Add Plugin**
+- Install and enable the [Terminal Plugin](obsidian://show-plugin?id=terminal)
+- Install and enable the [Yaml Editor Plugin](obsidian://show-plugin?id=yaml-editor)
+
+✅ Your setup is ready for optimal comfort in Obsidian!
+
+## Step 5: Run the development server to preview your changes
+
+This is probably the scariest part because you have to touch a terminal, at least for now. Anyway, knowing a bit about terminal is a great asset if you're gonna work with lefolio or similar tools in the future. So it's a good day to start, and it will be a small part, no worries.
+
+- Instal **Nodejs**, this will allow to run the development server that uses javascript. Go to https://nodejs.org/en/download, scroll down and chose the **Windows Installer (.msi)** option.
+- Run the installer, defaults should be just fine.
+- To check that the installation you can open a terminal, open **Git Bash** and type `npm`. If a bunch of text is printed, everything is good!
+- Now navigate the terminal to the location where you installed the project. If you have installed the **Terminal Plugin** in step 4 it will be easier, in that case, press the terminal icon on the left that says **Open terminal**. This will give you some choice (External or Integrated). Either is fine here, it's a mater of taste of you prefer to have it in another window or inside Obsidian, the important is that it is open at the location of the project!![[7 - terminal.png|400]]
+- Finaly, install the dependencies and run the server type:
+```
+npm install
+```
+I should take a while and output a bunch of text, if there is no obvious error, you can run the server:
+```
+npm run dev
+```
+Then the preview should be available on your browser:
+
+http://localhost:3000/eric-salo-design/
+
+✅ Congrats you're setup to edit the site and see the changes live before you publish it!
+## Step 6: Publish changes
+Let's make some changes and push them to the repo to get the full experience.
+Suggestion: remove the Tutorial page.
+
+To remove the Tutorial page:
+- delete the Turorial file, and the images in Assets/
+- Remove the line `Tutorial` from `config.yaml`
+```yaml
+navigation:
+  - Men: "https://ericsalodesign.com/pages/men"
+  - Women: "https://ericsalodesign.com/pages/women"
+  - New Arrivals: "https://ericsalodesign.com/collections/all"
+  - Sale: "https://ericsalodesign.com/collections/all-on-sale"
+  - Blog
+  - Tutorial # <---- Remove this line
+```
+
+The `Tutorial` link should disapear from the site navigation if you have your preview running.
